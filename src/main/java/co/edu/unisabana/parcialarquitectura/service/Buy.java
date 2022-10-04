@@ -6,16 +6,19 @@ import co.edu.unisabana.parcialarquitectura.repository.Database;
 public class Buy {
 
 
-  public String makePurchase(int vendorCode, int buyerCode, String item) {
+
+
+  public String makePurchase(Purchase purchase) {
     Database database = new Database();
-    if (buyerCode == vendorCode) {
-      throw new IllegalSaleException(vendorCode, buyerCode);
+    if (purchase.getBuyerCode() == purchase.getVendorCode()) {
+      throw new IllegalSaleException(purchase.getVendorCode(), purchase.getBuyerCode());
     }
-    int result = database.savePurchase(buyerCode, item);
+    int result = database.savePurchase(purchase.getBuyerCode(),   purchase.getItem());
     if (result == 1) {
-      return "Product sold";
+      throw new IllegalArgumentException("Product sold");
     } else {
-      return "The sale was not possible";
+      throw new IllegalArgumentException("The sale was not possible");
     }
   }
+
 }
