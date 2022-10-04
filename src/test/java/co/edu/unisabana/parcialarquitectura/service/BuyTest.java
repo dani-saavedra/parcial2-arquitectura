@@ -27,8 +27,8 @@ class BuyTest {
 
   @Test
   public void testMakePurchaseSaleNotPossible(){
-    Purchase purchase = new Purchase(0, 0, null);
-    assertThrows(IllegalSaleException.class, () -> {
+    Purchase purchase = new Purchase(1, 0, null);
+    assertThrows(IllegalArgumentException.class, () -> {
       service.makePurchase(purchase);
     });
   }

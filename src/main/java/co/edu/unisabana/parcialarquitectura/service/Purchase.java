@@ -15,23 +15,11 @@ public class Purchase {
         return vendorCode;
     }
 
-    public void setVendorCode(int vendorCode) {
-        this.vendorCode = vendorCode;
-    }
-
     public int getBuyerCode() {
         return buyerCode;
     }
 
-    public void setBuyerCode(int buyerCode) {
-        this.buyerCode = buyerCode;
-    }
-
     public String getItem() {
         return item;
-    }
-
-    public void setItem(String item) {
-        this.item = item;
     }
 }
